@@ -102,7 +102,7 @@ const refreshToken = async (token: string) => {
     config.jwt.secret as string,
     config.jwt.expiresIn as string
   );
-
+  // console.log("ACCESS TOKEN SUCCESS", accessToken);
   return {
     accessToken,
   };
