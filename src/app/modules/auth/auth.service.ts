@@ -9,11 +9,12 @@ import { JwtHelpers } from "../../../handler/JwtHandler";
 
 const signUp = async (payload: User): Promise<Partial<User>> => {
   const { password, ...signupData } = payload;
-
-  const hash = await bcrypt.hash(password, Number(config.bcrypt.salt));
+  const saltRounds = Number(config.bcrypt.salt);
+  const hash = await bcrypt.hash(password, saltRounds);
 
   payload.password = hash;
-
+  // console.log("PAYLOAD = ", payload);
+  // const result = payload
   const result = await prisma.user.create({
     data: payload,
     select: {

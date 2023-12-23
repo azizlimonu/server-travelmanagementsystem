@@ -46,6 +46,7 @@ const getSingleUserById = AsyncCatch(async (req: Request, res: Response) => {
     data: result,
   });
 });
+
 const updateSingleUserById = AsyncCatch(async (req: Request, res: Response) => {
   const { id } = req.params;
   const { ...updatedData } = req.body;
@@ -87,6 +88,7 @@ const updateRole = AsyncCatch(async (req: Request, res: Response) => {
     data: result,
   });
 });
+
 const deleteUser = AsyncCatch(async (req: Request, res: Response) => {
   const { id } = req.params;
 

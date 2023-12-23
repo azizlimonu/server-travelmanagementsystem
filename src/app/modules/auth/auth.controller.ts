@@ -8,9 +8,9 @@ import config from "../../../config";
 const signUp = AsyncCatch(
   async (req: Request, res: Response, next: NextFunction) => {
     const { ...userInfo } = req.body;
-
+    // console.log("USER INFO", req.body);
     const result = await AuthService.signUp(userInfo);
-
+    // console.log("The result =>", result);
     ProvideResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
